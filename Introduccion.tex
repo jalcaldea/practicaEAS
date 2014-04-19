@@ -1,0 +1,73 @@
+\subsection{Propósito}
+
+El objetivo de la especificación de requisitos software (ERS) es describir de forma concisa los servicios y restricciones de nuestro sistema software. La ERS establece una base de acuerdo o contrato entre la empresa de transporte TRASNFER y la empresa proveedora del servicio informático, APPCOM. Este documento proporciona una guía de la estructura y funcionalidad del sistema.\\
+
+Nótese que este documento no contendrá referencia alguna a detalles concretos sobre la implementación de dicho software informático.
+
+\subsection{Ámbito}
+
+El sistema informático a desarrollar, al que de ahora en adelante llamaremos VIRUTA, tendrá como propósito la venta automatizada de billetes de tren en la red de Cercanías. VIRUTA permitirá al personal revisor de TRANSFER efectuar la venta e impresión de billetes no numerados directamente en el tren, ahorrando al viajero la necesidad de pasar por la taquilla.\\
+
+Dicha venta de billetes será sujeto de aplicación de los distintos descuentos y tarifas que TRANSFER considere oportunos.\\
+
+VIRUTA deberá interactuar con el servidor central de TRANSFER para actualizar rutas, horarios, tarifas y descuentos, y para descargar todas las operaciones realizadas, que habrán quedado asociadas al empleado de TRANSFER que las llevó a cabo.\\
+
+Por el contrario, VIRUTA no tendrá capacidad de conexión inalámbrica, por lo que por ejemplo, no aceptará pagos con tarjeta (estos serán exclusivamente en efectivo), ni dispondrá de actualizaciones automáticas del sistema.
+VIRUTA correrá en terminales de punto de venta modelo MOTOROLA XLS 6000 que serán propiedad de TRANSFER. En un plazo de no menos de 2 años, dichos terminales habrán sido progresivamente remplazados por el modelo superior XLS 9000. Dichos terminales podrán ser usados indistintamente por cualquier empleado de TRANSFER que sea responsable de llevar a cabo las ventas.\\
+
+Por último, VIRUTA no deberá ser capaz de tramitar multas a los pasajeros, quedando esta funcionalidad restringida a los procedimientos actuales definidos por TRANSFER para la misma.
+VIRUTA supondrá evidentes ventajas y ahorro de costes tanto para TRANSFER como para sus clientes.\\
+
+\begin{enumerate}
+\item Permitirá a TRANSFER reducir los recursos destinados a venta en taquilla. Por ejemplo, ya no será necesario disponer de personal de taquilla en aquellas localidades con escaso tránsito de pasajeros.
+\item Permitirá a TRANSFER un seguimiento automatizado de los volúmenes de ventas y pasajeros.
+\item Permitirá a los clientes de TRANSFER un ahorro en tiempo y una ganancia en comodidad al poder pagar sus trayectos directamente en el tren.
+\end{enumerate}
+
+\subsection{Definiciones, acrónimos y abreviaturas}
+
+\begin{itemize}
+\item ERS: Especificación de requisitos software, el presente documento.
+\item TRANSFER: Transportes Ferroviarios. Empresa encargada de la explotación de los trenes de cercanías.
+\item VIRUTA: Venta de billetes en ruta. La aplicación a desarrollar mediante la presente ERS.
+\item Revisor: Personal de TRANSFER encargado de la venta y comprobación de los billetes en las rutas explotadas por TRANSFER.
+\item Trayecto: Viaje entre dos nodos de la red de TRANSFER.
+\item Billete: Documento que certifica el derecho de un cliente a realizar un trayecto en la red de TRANSFER. Viene definido por dicho trayecto, la fecha y hora, y la tarifa y descuento aplicados al mismo.
+\item Tarifa: Precio asignado por TRANSFER a un trayecto.
+\item SC: Sistema Central informático de TRANSFER
+\item TPV: Terminal de punto de venta.
+\item V-Ops: VIRUTA operaciones. Nombre del formato usado para transmitir las operaciones realizadas a lo largo del día del TPV al SC.
+\item V-Trf: VIRUTA tarifas. Nombre del formato usado para transmitir la información de tarifas del SC al TPV.
+\item V-Usr: VIRUTA usuarios. Nombre del formato usado para transmitir la información de usuarios del SC al TPV.
+\item V-Dsc: VIRUTA descuentos. Nombre del formato usado para transmitir la información de descuentos del SC al TPV.
+
+\end{itemize}
+
+\subsection{Referencias}
+Como referencia se ha usado la siguiente página la guía del Std. 830 del IEEE para la especificación de requisitos Software, así como los apuntes del tema 10 del Máster de Gestión y Dirección de Proyectos Software.
+
+
+\subsection{Visión global} 
+
+El resto de la ERS está organizada siguiendo el siguiente esquema:\\
+
+
+{\Large Descripción general:} describe los factores generales que afectan al producto y sus requisitos.
+\begin{itemize}
+\item Perspectiva del producto: establece el contexto de implantación del producto y el uso del interfaz del sistema, interfaces de usuario, hardware, interfaces de comunicación, etc.
+\item Funciones del producto: describe las funciones principales del software.
+\item Características de usuario: describe el nivel educativo, experiencia y capacidad del usuario.
+\item Restricciones: Políticas de regulación, limitaciones hardware e interfaces con otras aplicaciones, operaciones en paralelo, funciones de auditoria y de control, requisitos de fiabilidad, etc.
+\item Supuestos y dependencias: Identifica los factores que afectan a los requisitos de la SRS.
+\item Requisitos futuros: indicará los requisitos que se incluirán en versiones futuras del software.
+\end{itemize}
+
+{\Large Requisitos específicos:} Contienen todos los requisitos del sistema, con nivel de detalle mayor que el apartado anterior. Constituye la base del diseño que posteriormente será implementado.
+\begin{itemize}
+\item Interfaces: descripción detallada de todas las entradas y salidas del sistema software.
+\item Funciones: define las acciones fundamentales que tendrán lugar en el software durante la aceptación y procesamiento de la entrada y durante el procesamiento y generación de la salida.
+\item Requisitos de Rendimiento: requisitos numéricos estáticos y dinámicos del rendimiento del sistema.
+\item Requisitos de la Base de datos lógica: Requisitos lógicos de la información que residirá en la base de datos.
+\item Restricciones de Diseño: Restricciones impuestas al diseño por adecuación a otros estándares, limitaciones hardware, etc.
+\item Atributos del sistema software: Características del sistema software no funcionales. Aquí se evalúan conceptos como fiabilidad, robustez, velocidad, etc.
+\end{itemize}
