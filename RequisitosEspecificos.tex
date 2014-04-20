@@ -2,7 +2,7 @@
 
 \subsubsection{Interfaces de usuario}
 
-El usuario interactuará con el dispositivo a través del método de entrada correspondiente, ya sea una pantalla táctil o un teclado alfanumérico. El sistema deberá de ofrecer al menos una interfaz gráfica externa al revisor por cada una de las funcionalidades descritas en la sección 2.2 de este documento:\\
+El usuario interactuará con el dispositivo a través de la aplicacción cliente que deberá de ofrecer al menos una interfaz gráfica externa al revisor por cada una de las funcionalidades descritas en la sección 2.2 de este documento:\\
 
 \textbf{1.- Autenticación de usuario:} El usuario deberá ser capaz de introducir su nombre de usuario y contraseña. El usuario deberá recibir un mensaje de error en caso de que la autenticación no haya sido exitosa.\\
 
@@ -233,7 +233,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} Sistema Central.
 \item \textbf{Necesita:} Registro de ventas.
 \item \textbf{Acción:} El sistema genera un archivo intermedio V-Ops con todas las operaciones llevadas a cabo por el usuario desde la última extracción y lo transmite al directorio de destino del SC.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El TPV debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
 \item \textbf{Poscondicion:} VIRUTA marca las operaciones como extraídas.
 \item \textbf{Efectos laterales:} El SC procesa el archivo V-Ops.
 \end{itemize}
@@ -252,7 +252,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Trf, registro de tarifas de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Trf del sistema central y carga la información en el registro de tarifas de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El TPV debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de tarifas. Las antiguas tarifas son eliminadas.
 \item \textbf{Efectos laterales:} --
 \end{itemize}
@@ -269,7 +269,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Dsc, registro de descuentos de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Dsc del sistema central y carga la información en el registro de descuentos de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El TPV debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de descuentos. Los antiguos descuentos son eliminados.
 \item \textbf{Efectos laterales:} --
 \end{itemize}
@@ -286,7 +286,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Usr, registro de usuarios de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Usr del sistema central y carga la información en el registro de usuarios de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El TPV debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de descuentos. Los antiguos usuarios son eliminados.
 \item \textbf{Efectos laterales:} -.
 
@@ -304,7 +304,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Red, registro de red ferroviaria de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Red del sistema central y carga la información en el registro de nodos de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El TPV debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de red ferroviaria. Los antiguos nodos son eliminados.
 \item \textbf{Efectos laterales:} --
 \end{itemize}
@@ -343,10 +343,9 @@ La información de password de cada usuario estará encriptada.
 
 \subsubsection{Portabilidad}
 
-Este es uno de los puntos de mayor relevancia, en cuanto a la especificación del hardware, puesto que VIRUTA, al utilizar dispositivos inteligentes, no poseen un hardware similar. El sistema deberá ser funcional, tanto en dispositivos con hardware limitado, como en dispositivos con mayor potencia.
+Este es uno de los puntos de mayor relevancia, en cuanto a la especificación del hardware, puesto que VIRUTA, al utilizar dispositivos inteligentes, no poseen un hardware similar. El sistema deberá ser funcional, tanto en dispositivos con hardware limitado, como en dispositivos con mayor potencia.\\
 
-
-
+La aplicación a desarrollar se encargará de llevar esto a cabo. 
 
 \subsubsection{Fiabilidad}
 
@@ -360,7 +359,7 @@ La base de datos lógica del sistema debe representar el siguiente modelo del do
 
 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\linewidth]{./captura}
 \label{fig:captura}
@@ -371,5 +370,5 @@ Todos los datos serán alfanuméricos, sin embargo, el password deberá almacena
 
 En términos de rendimiento, la base de datos debe alinearse con los requisitos de rendimiento de VIRUTA enunciados en la sección 3.3.\\
 
-Dados los limitados recursos técnicos de los TPVs, la base de datos deberá ser lo más ligera posible.
+Dados los limitados recursos técnicos de los dispositivos, la base de datos deberá ser lo más ligera posible.
 
