@@ -1,40 +1,26 @@
 \subsection{Perspectiva del producto}
 
-VIRUTA debe ser implantado en un entorno de explotación específico y dependiente de otros sistemas ya existentes. Como ya se ha enunciado anteriormente, la aplicación deberá correr en terminales MOTOROLA XLS 6000 que se irán remplazando progresivamente por el modelo superior XLS 9000 dentro de un plazo de dos años.\\
+VIRUTA debe ser implantado en un entorno de explotación específico y dependiente de otros sistemas ya existentes. Como ya se ha enunciado anteriormente, la aplicación deberá correr en dispositivos inteligentes.
 
-Estos TPVs tienen las siguientes especificaciones técnicas:\\
+Estos dispositivos, usarán Android 1.6 o superior como sistema operativo, por lo que estas serán las especificaciones medias de un dispositivo:
 
-
-{\Large MOTOROLA XLS 6000}
 \begin{itemize}
-\item 16 MB memoria RAM
-\item 1 GIGA memoria Flash
-\item Procesador ARM7 TMI con frecuencia máxima de 250 Mhz.
-\item Bateria ION-LI de 1000mAh (72 horas reales de uso).
-\item 1 Puerto micro USB
-\item 1 Impresora de tinta incluida.
-\item Teclado analógico.
-\item Pantalla de 200*400
+\item HSDPA
+\item Al menos 200MHz de procesador
+\item 32 MB de memoria RAM
+\item Procesador ARMv5 o superior 
+\item Puerto USB
+\item Bluetooth
 \end{itemize}
 
-{\Large MOTOROLA XLS 9000}
-\begin{itemize}
-\item 128 MB memoria RAM
-\item 2 GIGA memoria Flash
-\item Procesador ARM9 TMI con frecuencia máxima de 800 Mhz.
-\item Bateria ION-LI de 2000mAh (72 horas reales de uso).
-\item 1 puerto micro USB 3.0
-\item 1 impresora de tinta a color.
-\item 1 tarjeta de red 3G.
-\item Teclado analógico ergonómico.
-\item Pantalla a color de 200*400
-\end{itemize}
+Los dispositivos necesitarán deberán contar con una impresorora Bluetooth, que permitirá imprimir los billetes.\\
 
-Como se puede observar a tenor de las especificaciones técnicas de los TPVs, VIRUTA deberá poder ser ejecutado bajo unos recursos limitados. Esto fuerza a Viruta a ceñirse a unas características arquitectónicas que serán descritas en la sección 3.5 de este documento.
-Además, el software deberá interacturar con el sistema central (SC) de TRANSFER para la descarga de las operaciones de venta efectuadas. Este proceso se llevará a cabo mediante conexión física entre los TPVs y el SC por puerto USB, es decir, no habrá capacidad de conexión inalámbrica.
+Además, el software deberá interacturar con el sistema central (SC) de TRANSFER para la descarga de las operaciones de venta efectuadas.   Este proceso se llevará a cabo mediante conexión física entre los dispositivos y el SC por puerto USB, es decir, no habrá capacidad de conexión inalámbrica.\\
+
 El sistema no deberá interactuar con el tren ni con ninguno de los sistemas que pudiera haber en él.\\
 
 Los requisitos concretos para los interfaces del sistema serán enunciados en la sección 3 de este documento.
+
 
 \subsection{Funciones del producto}
 
@@ -83,5 +69,3 @@ El presente documento se ha realizado con la información disponible en la fecha
 \subsection{Requisitos futuros}
 
 Es posible que el sistema evolucione en un futuro de tal forma que VIRUTA pueda interactuar con el directorio ligero de usuarios de TRANSFER, con el objetivo de unificar la gestión de usuarios de todos los sistemas de la compañía ferroviaria.\\
-
-También es posible que el sistema evolucione en un futuro para obtener ventaja de la tarjeta de red 3G de los dispositivos MOTOROLA XSL 9000 que irán remplazando paulatinamente a los actuales XSL 6000.
