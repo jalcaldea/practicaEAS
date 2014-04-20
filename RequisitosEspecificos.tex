@@ -2,7 +2,7 @@
 
 \subsubsection{Interfaces de usuario}
 
-El usuario interactuará con el TPV por medio del teclado integrado en el mismo. El sistema deberá de ofrecer al menos una interfaz gráfica externa al revisor por cada una de las funcionalidades descritas en la sección 2.2 de este documento:\\
+\color{red} El usuario interactuará con el TPV por medio del teclado integrado en el mismo. \color{black} El sistema deberá de ofrecer al menos una interfaz gráfica externa al revisor por cada una de las funcionalidades descritas en la sección 2.2 de este documento:\\
 
 \textbf{1.- Autenticación de usuario:} El usuario deberá ser capaz de introducir su nombre de usuario y contraseña. El usuario deberá recibir un mensaje de error en caso de que la autenticación no haya sido exitosa.\\
 
@@ -27,11 +27,11 @@ Del mismo modo, el sistema deberá tener en cuenta las características del term
 
 Todas las interfaces gráficas deberán seguir las pautas de imagen corporativa de TRANSFER.\\
 
-Por último, todas las interfaces del usuario, tanto gráficas (opciones en pantalla) como analógicas (teclado del terminal) deberán ofrecer la posibilidad de cancelar la operación en curso.\\
+Por último, todas las interfaces del usuario, tanto gráficas (opciones en pantalla) \color{red} como analógicas (teclado del terminal) \color{black} deberán ofrecer la posibilidad de cancelar la operación en curso.\\
 
 \subsubsection{Interfaces hardware}
 
-VIRUTA deberá correr en terminales de punto de venta MOTOROLA XSL 6000 y XLS 9000. Las especificaciones técnicas de estos dispositivos pueden encontrarse en la sección 2.1 de este documento. Nótese que dicho dispositivo ya integra una impresora.\\
+\color{red} VIRUTA deberá correr en terminales de punto de venta MOTOROLA XSL 6000 y XLS 9000. Las especificaciones técnicas de estos dispositivos pueden encontrarse en la sección 2.1 de este documento. Nótese que dicho dispositivo ya integra una impresora.\\ \color{black}
 
 El sistema también deberá conectarse de forma física con el SC o alguno de sus nodos. Dicho sistema central corre en un servidor UNIX en las oficinas centrales de TRANSFER. Los distintos nodos de dicho sistema central serán clientes pesados instalados en los PCs de las dependencias de TRANSFER. Dichos PCs correrán una distribución estándar de Linux adaptada gráficamente a la imagen corporativa de TRANSFER.\\
 
@@ -327,7 +327,7 @@ Los archivos xml que se intercambiarán no ``pesarán'' más de 300k en ningún 
 
 Dadas las características de los terminales resumidas en la sección 2.3 de esta sección, VIRUTA deberá ajustarse a las limitadas especificaciones de memoria y procesador de dichos terminales sin que ello suponga una merma en las restricciones de rendimiento definidas más arriba.\\
 
-Por último, VIRUTA debe ser eficiente energéticamente hablando, de tal forma que tenga un mínimo de autonomía de 72 horas a un ritmo de 200 operaciones cada 8 horas.
+Por último, VIRUTA debe ser eficiente energéticamente hablando, de tal forma que tenga un mínimo de autonomía de \color{red} 72 horas \color{black} a un ritmo de 200 operaciones cada 8 horas.
 
 \subsection{Restricciones de diseño}
 
@@ -343,7 +343,7 @@ La información de password de cada usuario estará encriptada.
 
 \subsubsection{Portabilidad}
 
-Aunque el sistema empezará corriendo en los TPVs MOTOROLA XSL 6000, estos serán remplazados progresivamente por el modelo superior XSL 9000. VIRUTA deberá ser capaz de funcionar con los mismos requisitos en ambos terminales.
+\color{red} Aunque el sistema empezará corriendo en los TPVs MOTOROLA XSL 6000, estos serán remplazados progresivamente por el modelo superior XSL 9000. VIRUTA deberá ser capaz de funcionar con los mismos requisitos en ambos terminales. \color{black}
 
 \subsubsection{Fiabilidad}
 
