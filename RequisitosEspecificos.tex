@@ -174,6 +174,23 @@ Viruta hará uso del protocolo de red HSDPA, un protocolo que permite la comunic
 \item \textbf{Efectos laterales:} Viruta imprime el billete y un justificante.
 \end{itemize}
 
+\paragraph{Pago con tarjeta}
+
+\begin{itemize}
+\item \textbf{Prioridad:} Alta.
+\item \textbf{Estabilidad:} Alta.
+\item \textbf{Descripción:} Pago con tarjeta de un billete.
+\item \textbf{Entrada:} Datos del billete seleccionado por el usuario.
+\item \textbf{Salida:} Mensaje informativo.
+\item \textbf{Origen:} Usuario.
+\item \textbf{Destino:} VIRUTA y Empresa propietaria de la tarjeta.
+\item \textbf{Necesita:} Nombre y Apellidos del propietario, número de tarjeta, fecha de caducidad y código de seguridad.
+\item \textbf{Acción:} El usuario deberá ser capaz de introducir los datos anteriores en la aplicación. El sistema y el propietario de la tarjeta verificará que los datos introducidos son correctos y en caso afirmativo, permitirá realizar la compra del billete. Tras ésto, se mostrará un mensaje de confirmación.
+\item \textbf{Precondición:} El usuario debe existir en la base de datos.
+\item \textbf{Poscondicion:} El sistema registra asocia el número de tarjeta con el usuario y registra el pago.
+\item \textbf{Efectos laterales:} Viruta imprime el billete y un justificante.
+\end{itemize}
+
 \paragraph{Impresión del billete}
 
 \begin{itemize}
