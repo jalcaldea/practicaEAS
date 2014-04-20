@@ -6,22 +6,11 @@ El usuario interactuará con el dispositivo a través de la aplicacción cliente
 
 \textbf{1.- Autenticación de usuario:} El usuario deberá ser capaz de introducir su nombre de usuario y contraseña. El usuario deberá recibir un mensaje de error en caso de que la autenticación no haya sido exitosa.\\
 
-Una vez autenticado, la interacción del usuario con el TPV puede ser reducida a dos posibles escenarios:
+Una vez autenticado, la interacción del usuario con el dispositivo será la siguiente:
 
-\begin{enumerate}[(a)]
-\item El terminal no está conectado al SC.\\
+\textbf{2.- Descarga de operaciones:} El usuario deberá ser notificado por pantalla de que la descarga de operaciones es posible (tras conectar el TPV al SC), así como deberá recibir un mensaje de confirmación o error tras la finalización de la operación.
 
-\textbf{2.- Venta de billetes:} El usuario deberá ser capaz de seleccionar los nodos del trayecto de una lista y de elegir un posible descuento. También deberá ser capaz de ver un resumen de los datos del billete (trayecto, tarifa, descuento, fecha y hora) antes de confirmar la compra. El usuario deberá recibir un mensaje confirmando que la operación se ha llevado a cabo satisfactoriamente.
-
-\item El terminal está conectado al SC.
-
-\textbf{3.- Descarga de operaciones:} El usuario deberá ser notificado por pantalla de que la descarga de operaciones es posible (tras conectar el TPV al SC), así como deberá recibir un mensaje de confirmación o error tras la finalización de la operación.
-
-\textbf{4.- Actualizar sistema:} El usuario deberá ser notificado de que la actualización del sistema es posible (tras conectar el TPV al SC), así como deberá recibir un mensaje de confirmación o error tras la finalización de la operación.
-
-\end{enumerate}
-
-Nótese que una vez autenticado el usuario en VIRUTA, el terminal de punto de venta no conectado al SC no deberá permitir otra opción que no sea la venta de billetes. De esta forma, se espera agilizar la venta de los mismos al reducir el número de interacciones entre revisor y dispositivo.\\
+\textbf{3.- Actualizar sistema:} El usuario deberá ser notificado de que la actualización del sistema es posible (tras conectar el TPV al SC), así como deberá recibir un mensaje de confirmación o error tras la finalización de la operación.\\
 
 Del mismo modo, el sistema deberá tener en cuenta las características del terminal de punto de venta, descritas en la sección 2.1, así como las características de usuario definidas en la sección 2.3 de este documento.\\
 
@@ -67,7 +56,7 @@ Además, por cada una de las operaciones realizadas:
 
 \paragraph{Interfaz de usuarios}
 
-La actualización de usuarios se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión USB. V-Usr incluirá la siguiente información:
+La actualización de usuarios se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión permanente. V-Usr incluirá la siguiente información:
 
 \begin{itemize}
 \item Fecha de la creación del archivo.
@@ -83,7 +72,7 @@ Además, por cada una de las entradas:
 \end{itemize}
 
 \paragraph{Interfaz de tarifas}
-La actualización de tarifas se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión USB. La generación de dicho archivo xml queda fuera del alcance de VIRUTA. V-Trf incluirá la siguiente información:
+La actualización de tarifas se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión permanente. La generación de dicho archivo xml queda fuera del alcance de VIRUTA. V-Trf incluirá la siguiente información:
 
 \begin{itemize}
 \item Fecha de la creación del archivo.
@@ -103,7 +92,7 @@ Además, por cada una de las entradas:
 
 \paragraph{Interfaz de descuentos}
 
-La actualización de tarifas se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión USB. La generación de dicho archivo xml queda fuera del alcance de VIRUTA. V-Dsc incluirá la siguiente información:\\
+La actualización de tarifas se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión permanente. La generación de dicho archivo xml queda fuera del alcance de VIRUTA. V-Dsc incluirá la siguiente información:\\
 
 Fecha de la creación del archivo.
 
@@ -121,7 +110,7 @@ Además, por cada una de las entradas:
 
 \paragraph{Interfaz de red ferroviaria}
 
-La actualización de red ferroviaria se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión USB. La generación de dicho archivo xml queda fuera del alcance de VIRUTA. V-Red incluirá la siguiente información:\\
+La actualización de red ferroviaria se llevará a cabo mediante la importación de un archivo intermedio XML del SC al dispositivo de venta mediante la conexión permanente. La generación de dicho archivo xml queda fuera del alcance de VIRUTA. V-Red incluirá la siguiente información:\\
 
 \begin{itemize}
  \item Fecha de la creación del archivo.
@@ -143,7 +132,7 @@ Viruta hará uso de una base de datos relacional para persistir la información.
 
 \paragraph{Interfaces de comunicaciones}
 
-Viruta no hará uso en su versión actual de ningún protocolo de red. Se conectará exclusivamente al SC mediante el puerto USB del TPV.
+Viruta hará uso del protocolo de red HSDPA, un protocolo que permite la comunicación  de dispositivos de forma inalámbrica.
 
 \subsection{Requisitos funcionales}
 
@@ -252,7 +241,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Trf, registro de tarifas de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Trf del sistema central y carga la información en el registro de tarifas de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de tarifas. Las antiguas tarifas son eliminadas.
 \item \textbf{Efectos laterales:} --
 \end{itemize}
@@ -269,7 +258,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Dsc, registro de descuentos de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Dsc del sistema central y carga la información en el registro de descuentos de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de descuentos. Los antiguos descuentos son eliminados.
 \item \textbf{Efectos laterales:} --
 \end{itemize}
@@ -286,7 +275,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Usr, registro de usuarios de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Usr del sistema central y carga la información en el registro de usuarios de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de descuentos. Los antiguos usuarios son eliminados.
 \item \textbf{Efectos laterales:} -.
 
@@ -304,7 +293,7 @@ Viruta no hará uso en su versión actual de ningún protocolo de red. Se conect
 \item \textbf{Destino:} VIRUTA.
 \item \textbf{Necesita:} Archivo V-Red, registro de red ferroviaria de VIRUTA.
 \item \textbf{Acción:} El sistema importa el archivo V-Red del sistema central y carga la información en el registro de nodos de VIRUTA.
-\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema. El dispositivo debe estar conectado físicamente al SC.
+\item \textbf{Precondición:} El usuario debe estar autenticado en el sistema.
 \item \textbf{Poscondicion:} VIRUTA queda actualizado con la información de red ferroviaria. Los antiguos nodos son eliminados.
 \item \textbf{Efectos laterales:} --
 \end{itemize}
@@ -371,4 +360,3 @@ Todos los datos serán alfanuméricos, sin embargo, el password deberá almacena
 En términos de rendimiento, la base de datos debe alinearse con los requisitos de rendimiento de VIRUTA enunciados en la sección 3.3.\\
 
 Dados los limitados recursos técnicos de los dispositivos, la base de datos deberá ser lo más ligera posible.
-
